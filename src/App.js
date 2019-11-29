@@ -1,12 +1,14 @@
 import React from "react";
-import { View } from "react-native";
+import { View, SafeAreaView } from "react-native";
 import Routes from "./Routes";
 
 export default class App extends React.Component {
   render() {
     return (
       <View>
-        <Routes />
+        <SafeAreaView>
+          <Routes />
+        </SafeAreaView>
       </View>
     );
   }

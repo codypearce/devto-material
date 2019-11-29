@@ -9,7 +9,7 @@ import { Route, Router, Switch } from "./Router";
 function Routes() {
   return (
     <Router>
-      <View style={{ backgroundColor: "#f2f6ff", marginTop: 200 }}>
+      <View style={{ backgroundColor: "#f2f6ff", minHeight: "100%" }}>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/Post/:id" component={Post} />
