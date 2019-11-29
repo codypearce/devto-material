@@ -1,11 +1,12 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
+import Routes from "./Routes";
 
-export default class Page extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
-      <View style={{ marginTop: 80 }}>
-        <Text>test</Text>
+      <View>
+        <Routes />
       </View>
     );
   }

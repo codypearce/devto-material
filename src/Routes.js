@@ -1,0 +1,22 @@
+import React from "react";
+import { View } from "react-native";
+
+import Home from "./Screens/Home";
+import Post from "./Screens/Post";
+
+import { Route, Router, Switch } from "./Router";
+
+function Routes() {
+  return (
+    <Router>
+      <View style={{ backgroundColor: "#f2f6ff", marginTop: 200 }}>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/Post/:id" component={Post} />
+        </Switch>
+      </View>
+    </Router>
+  );
+}
+
+export default Routes;
