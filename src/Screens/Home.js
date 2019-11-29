@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, Platform, StyleSheet } from "react-native";
-import { Link } from "../Router";
 import { Drawer } from "material-bread";
 import Appbar from "../Components/Appbar";
 import { trueHundredHeight } from "../Styles/dimensions";
