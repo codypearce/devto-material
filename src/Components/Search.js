@@ -28,7 +28,6 @@ function Search({ history }) {
   const shadows = isMobile ? shadow(2) : shadow(0);
 
   function HandleNavigate(search) {
-    console.log("asdfasdf");
     if (!search) return;
     const link = search ? `?tag=${search}` : "/";
 
@@ -65,7 +64,6 @@ function Search({ history }) {
       onCloseIcon={() => setSearch("")}
       onSubmitEditing={() => HandleNavigate(search)}
       onKeyPress={event => {
-        console.log(event);
         if (event.nativeEvent.key == "Enter") {
           HandleNavigate(search);
         }

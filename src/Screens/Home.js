@@ -11,12 +11,14 @@ import RightSheet from "../Components/RightSheet/RightSheet";
 import Search from "../Components/Search";
 import DrawerContent from "../Components/Drawer/DrawerContent";
 import PostList from "../Components/PostList/PostList";
+import ThirdColumn from "../Components/ThirdColumn/ThirdColumn";
 
 import {
   TabletOrMobile,
   Mobile,
   isMobileNative,
-  mobileBreakpoint
+  mobileBreakpoint,
+  LaptopOrDesktop
 } from "../Styles/responsive";
 import { trueHundredHeight, screenHeight } from "../Styles/dimensions";
 import { isWeb } from "../Styles/device";
@@ -93,8 +95,11 @@ function Home({ location }) {
           <Mobile>
             <Search />
           </Mobile>
-          <View style={[{ padding: isMobile ? 8 : 34 }, styles.content]}>
+          <View style={[{ padding: isMobile ? 8 : 28 }, styles.content]}>
             <PostList posts={posts} hasError={hasError} isLoading={isLoading} />
+            <LaptopOrDesktop>
+              <ThirdColumn />
+            </LaptopOrDesktop>
           </View>
         </ScrollView>
         <RightSheet visible={!!rightSheet} toggle={setRightSheet} />
