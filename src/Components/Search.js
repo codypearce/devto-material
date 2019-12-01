@@ -29,10 +29,10 @@ export default function Search() {
   return (
     <Searchfield
       color={isMobile ? "white" : "#f2f6ff"}
-      placeholderTextColor={"#989ba3"}
+      placeholderTextColor={"#75787e"}
       key={0}
       iconProps={{
-        color: "#989ba3",
+        color: "#75787e",
         style: {
           margin: 10
         }
@@ -48,7 +48,7 @@ export default function Search() {
       textStyle={[
         platformStyles,
         {
-          color: "#989ba3"
+          color: "#75787e"
         }
       ]}
       value={search}

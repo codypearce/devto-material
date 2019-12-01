@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { Drawer, Fab } from "material-bread";
 import Appbar from "../Components/Appbar/Appbar";
-import RightSheet from "../Components/RightSheet";
+import RightSheet from "../Components/RightSheet/RightSheet";
 import Search from "../Components/Search";
 
 import {
