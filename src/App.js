@@ -5,8 +5,8 @@ import Routes from "./Routes";
 export default class App extends React.Component {
   render() {
     return (
-      <View>
-        <SafeAreaView>
+      <View style={{ flex: 1 }}>
+        <SafeAreaView style={{ flex: 1 }}>
           <Routes />
         </SafeAreaView>
       </View>

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { View, Text, Platform, StyleSheet } from "react-native";
+import { View, Text, Platform, StyleSheet, ScrollView } from "react-native";
 import { Drawer, Fab } from "material-bread";
 import Appbar from "../Components/Appbar";
-import { trueHundredHeight } from "../Styles/dimensions";
+import { trueHundredHeight, screenHeight } from "../Styles/dimensions";
 import theme from "../Styles/theme";
 import { TabletOrMobile } from "../Styles/responsive";
+import { getBottomSpace } from "react-native-iphone-x-helper";
 
 export default function Home() {
   const [isOpen, setisOpen] = useState(true);
@@ -25,14 +26,18 @@ export default function Home() {
       appbar={<Appbar />}
     >
       <View style={styles.body}>
-        <View style={{ flexDirection: "row" }}></View>
+        <ScrollView>
+          <View style={{ flexDirection: "row", padding: 34 }}></View>
+        </ScrollView>
         <TabletOrMobile>
-          <Fab style={styles.fab} />
+          <Fab containerStyle={styles.fab} />
         </TabletOrMobile>
       </View>
     </Drawer>
   );
 }
+
+const appbarHeight = 56;
 
 const styles = StyleSheet.create({
   pageContainer: {
@@ -47,10 +52,15 @@ const styles = StyleSheet.create({
   body: {
     width: "100%",
     backgroundColor: theme.bodyBackground,
-    padding: 34,
-    minHeight: trueHundredHeight
+
+    minHeight: screenHeight - appbarHeight
   },
   fab: {
-    position: "absolute"
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+    paddingRight: 24,
+    paddingBottom: 24,
+    marginBottom: getBottomSpace()
   }
 });
