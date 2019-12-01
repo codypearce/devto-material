@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   pageContainer: {
     height: "auto",
     minHeight: trueHundredHeight,
-    backgroundColor: theme.background
+    backgroundColor: theme.bodyBackground
   },
   drawer: {
     borderRightWidth: 0,
@@ -134,7 +134,8 @@ const styles = StyleSheet.create({
 
     minHeight: screenHeight - appbarHeight,
     position: "relative",
-    paddingBottom: 100
+    paddingBottom: 100,
+    maxWidth: 1440
   },
   content: {
     flexDirection: "row"
