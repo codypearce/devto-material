@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Chip, Hoverable } from "material-bread";
+import { withRouter } from "react-router";
 
-function NavChip({ title, style }) {
+function NavChip({ title, style, history }) {
   const initialState = {
     backgroundColor: "#f3f3f4"
   };
@@ -10,6 +11,13 @@ function NavChip({ title, style }) {
   const [backgroundColor, setbackgroundColor] = useState(
     initialState.backgroundColor
   );
+
+  function HandleNavigate(search) {
+    if (!search) return;
+    const link = search ? `?tag=${search}` : "/";
+
+    history.push(link);
+  }
 
   return (
     <Hoverable
@@ -21,6 +29,7 @@ function NavChip({ title, style }) {
         radius={2}
         chipStye={"outlined"}
         visible={true}
+        onPress={() => HandleNavigate(title)}
         style={[
           {
             padding: 0,
@@ -51,4 +60,4 @@ NavChip.propTypes = {
   history: PropTypes.object
 };
 
-export default NavChip;
+export default withRouter(NavChip);

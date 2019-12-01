@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-
+import PropTypes from "prop-types";
 import { StyleSheet } from "react-native";
 
 import { Searchfield, shadow } from "material-bread";
 import { isWeb } from "../Styles/device";
 import { isMobileNative, mobileBreakpoint } from "../Styles/responsive";
 import { useMediaQuery } from "react-responsive";
+import { withRouter } from "react-router";
 
-export default function Search() {
+function Search({ history }) {
   const isMobile = isWeb
     ? useMediaQuery({ maxWidth: mobileBreakpoint })
     : isMobileNative;
@@ -25,6 +26,14 @@ export default function Search() {
     : {};
 
   const shadows = isMobile ? shadow(2) : shadow(0);
+
+  function HandleNavigate(search) {
+    console.log("asdfasdf");
+    if (!search) return;
+    const link = search ? `?tag=${search}` : "/";
+
+    history.push(link);
+  }
 
   return (
     <Searchfield
@@ -54,6 +63,13 @@ export default function Search() {
       value={search}
       onChangeText={search => setSearch(search)}
       onCloseIcon={() => setSearch("")}
+      onSubmitEditing={() => HandleNavigate(search)}
+      onKeyPress={event => {
+        console.log(event);
+        if (event.nativeEvent.key == "Enter") {
+          HandleNavigate(search);
+        }
+      }}
     />
   );
 }
@@ -65,3 +81,9 @@ const styles = StyleSheet.create({
     color: "#989ba3"
   }
 });
+
+Search.propTypes = {
+  history: PropTypes.object
+};
+
+export default withRouter(Search);

@@ -17,8 +17,8 @@ export default function PostActions({ reactions, comments }) {
         top={-4}
         style={{
           padding: 0,
-          minHeight: 16,
-          minWidth: 16,
+          minHeight: reactions > 99 ? 18 : 16,
+          minWidth: reactions > 99 ? 18 : 16,
           boxSizing: "border-box"
         }}
         containerStyle={styles.containerBadge}
@@ -33,8 +33,8 @@ export default function PostActions({ reactions, comments }) {
         right={-10}
         top={-4}
         style={{
-          minHeight: 16,
-          minWidth: 16
+          minHeight: comments > 99 ? 18 : 16,
+          minWidth: comments > 99 ? 18 : 16
         }}
         containerStyle={styles.commentsBadge}
       >
