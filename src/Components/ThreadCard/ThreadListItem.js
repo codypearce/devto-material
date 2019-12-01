@@ -41,7 +41,7 @@ export default function ThreadListItem({ commentNumber, text, divider }) {
 }
 
 ThreadListItem.propTypes = {
-  commentNumber: PropTypes.number,
+  commentNumber: PropTypes.string,
   text: PropTypes.string,
   divider: PropTypes.bool
 };

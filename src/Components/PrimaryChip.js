@@ -16,11 +16,11 @@ export default function PrimaryChip({ title }) {
       }}
       textStyles={{
         fontSize: 12,
-        lineHeight: 14,
+        lineHeight: 12,
         marginLeft: 6,
         marginRight: 6,
         color: "white",
-        fontWeight: 600
+        fontWeight: "600"
       }}
     />
   );

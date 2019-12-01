@@ -4,9 +4,12 @@ import PropTypes from "prop-types";
 import { StyleSheet } from "react-native";
 import { Card, CardContent } from "material-bread";
 
-export default function FloatingCard({ children }) {
+export default function FloatingCard({ children, maxWidth }) {
   return (
-    <Card shadow={0} style={styles.card}>
+    <Card
+      shadow={0}
+      style={[{ maxWidth: maxWidth ? maxWidth : 280 }, styles.card]}
+    >
       <CardContent style={styles.content}>{children}</CardContent>
     </Card>
   );
@@ -14,7 +17,6 @@ export default function FloatingCard({ children }) {
 
 const styles = StyleSheet.create({
   card: {
-    maxWidth: 280,
     width: "auto",
     marginBottom: 24
   },
@@ -24,5 +26,6 @@ const styles = StyleSheet.create({
 });
 
 FloatingCard.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  maxWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };

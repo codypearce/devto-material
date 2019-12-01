@@ -9,7 +9,7 @@ import NewListingItem from "./NewListingsItem";
 import Box from "../Box";
 import PrimaryChip from "../PrimaryChip";
 
-export default function NewListings() {
+export default function NewListings({ maxWidth }) {
   const totalListing = 88;
   const newListingArray = [
     { tag: "collab", title: "Looking for Tech Writers" },
@@ -17,7 +17,7 @@ export default function NewListings() {
     { tag: "education", title: "3 Coding Tips Everyday" }
   ];
   return (
-    <FloatingCard>
+    <FloatingCard maxWidth={maxWidth}>
       <Box type={"row"} justifyContent={"space-between"}>
         <Anchor url={"https://dev.to/listings"}>
           <SectionHeader title={"New Listings"} />
@@ -48,5 +48,5 @@ export default function NewListings() {
 }
 
 NewListings.propTypes = {
-  title: PropTypes.string
+  maxWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };

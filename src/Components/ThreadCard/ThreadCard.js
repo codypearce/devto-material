@@ -8,9 +8,15 @@ import FloatingCard from "../FloatingCard";
 import Box from "../Box";
 import ThreadListItem from "./ThreadListItem";
 
-export default function ThreadCard({ list, title, buttonText, bottomText }) {
+export default function ThreadCard({
+  list,
+  title,
+  buttonText,
+  bottomText,
+  maxWidth
+}) {
   return (
-    <FloatingCard>
+    <FloatingCard maxWidth={maxWidth}>
       <Box type={"row"} justifyContent={"space-between"}>
         <SectionHeader title={title} />
       </Box>
@@ -49,5 +55,6 @@ ThreadCard.propTypes = {
   title: PropTypes.string,
   list: PropTypes.array,
   buttonText: PropTypes.string,
-  bottomText: PropTypes.string
+  bottomText: PropTypes.string,
+  maxWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
