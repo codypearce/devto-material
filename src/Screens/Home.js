@@ -1,42 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Platform, StyleSheet } from "react-native";
-import { Drawer } from "material-bread";
+import { Drawer, Fab } from "material-bread";
 import Appbar from "../Components/Appbar";
 import { trueHundredHeight } from "../Styles/dimensions";
 import theme from "../Styles/theme";
+import { TabletOrMobile } from "../Styles/responsive";
 
-export default class Home extends React.Component {
-  state = {
-    isOpen: false
-  };
+export default function Home() {
+  const [isOpen, setisOpen] = useState(true);
+  const isWeb = Platform.OS == "web";
 
-  setisOpen = isOpen => {
-    this.setState({ isOpen });
-  };
-  render() {
-    const { isOpen } = this.state;
-    const isWeb = Platform.OS == "web";
-
-    return (
-      <Drawer
-        open={isWeb ? true : isOpen}
-        type={isWeb ? "permanent" : "modal"}
-        onClose={() => this.setisOpen(false)}
-        drawerContent={
-          <View>
-            <Text>Drawer Content</Text>
-          </View>
-        }
-        style={styles.pageContainer}
-        drawerStyle={styles.drawer}
-        appbar={<Appbar />}
-      >
-        <View style={styles.body}>
-          <View style={{ flexDirection: "row" }}></View>
+  return (
+    <Drawer
+      open={isWeb ? true : isOpen}
+      type={isWeb ? "permanent" : "modal"}
+      onClose={() => setisOpen(false)}
+      drawerContent={
+        <View>
+          <Text>Drawer Content</Text>
         </View>
-      </Drawer>
-    );
-  }
+      }
+      style={styles.pageContainer}
+      drawerStyle={styles.drawer}
+      appbar={<Appbar />}
+    >
+      <View style={styles.body}>
+        <View style={{ flexDirection: "row" }}></View>
+        <TabletOrMobile>
+          <Fab style={styles.fab} />
+        </TabletOrMobile>
+      </View>
+    </Drawer>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -51,9 +46,11 @@ const styles = StyleSheet.create({
   },
   body: {
     width: "100%",
-    paddingTop: 34,
     backgroundColor: theme.bodyBackground,
     padding: 34,
     minHeight: trueHundredHeight
+  },
+  fab: {
+    position: "absolute"
   }
 });

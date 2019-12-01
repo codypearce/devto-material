@@ -12,26 +12,43 @@ import {
   BodyText
 } from "material-bread";
 import { withRouter } from "react-router";
+import { useMediaQuery } from "react-responsive";
+import {
+  mobileBreakpoint,
+  isMobileNative,
+  LaptopOrDesktop
+} from "../Styles/responsive";
+import { isWeb } from "../Styles/device";
 
 function Header({ history }) {
+  const isMobile = isWeb
+    ? useMediaQuery({ maxWidth: mobileBreakpoint })
+    : isMobileNative;
+
   return (
     <Appbar
-      title={<BodyText text={"Dev.to.Material"} color={"#0d0863"} />}
+      title={
+        <BodyText
+          text={isMobile ? "DEV.M" : "Dev.to.Material"}
+          color={"#0d0863"}
+        />
+      }
       onTitle={() => history.push("/")}
       color={"white"}
       elevation={0}
-      style={styles.appbar}
+      style={[{ boxShadow: "none" }, styles.appbar]}
       actionItems={[
-        <Button
-          text={"Write a post"}
-          onPress={this.toggleMenu}
-          type="outlined"
-          key={1}
-          icon={<Icon name={"send"} />}
-          radius={20}
-          borderSize={2}
-          style={{ marginRight: 8 }}
-        />,
+        <LaptopOrDesktop key={1}>
+          <Button
+            text={"Write a post"}
+            onPress={this.createPost}
+            type="outlined"
+            icon={<Icon name={"send"} />}
+            radius={20}
+            borderSize={2}
+            style={{ marginRight: 8 }}
+          />
+        </LaptopOrDesktop>,
         <Badge
           style={styles.notificationBadge}
           containerStyle={styles.notificationContainer}
@@ -71,7 +88,6 @@ Header.propTypes = {
 
 const styles = StyleSheet.create({
   appbar: {
-    boxShadow: "none",
     borderBottomColor: "#f1f1f1",
     borderBottomWidth: 1
   },
@@ -81,7 +97,7 @@ const styles = StyleSheet.create({
     right: 6
   },
   notificationContainer: {
-    alignSelf: "center",
+    alignSelf: isMobileNative ? "stretch" : "center",
     marginLeft: 8,
     marginRight: 8
   }
