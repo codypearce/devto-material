@@ -65,7 +65,8 @@ Header.propTypes = {
 const styles = StyleSheet.create({
   appbar: {
     borderBottomColor: "#f1f1f1",
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
+    zIndex: 1000
   }
 });
 
