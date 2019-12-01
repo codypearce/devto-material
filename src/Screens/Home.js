@@ -19,16 +19,28 @@ import { getBottomSpace } from "react-native-iphone-x-helper";
 import theme from "../Styles/theme";
 
 export default function Home() {
-  const [isOpen, setisOpen] = useState(true);
-  const [rightSheet, setRightSheet] = useState(false);
+  const handleIsMobile = matches => {
+    if (matches) {
+      setisOpen(false);
+    } else {
+      setisOpen(true);
+    }
+  };
+
   const isMobile = isWeb
-    ? useMediaQuery({ maxWidth: mobileBreakpoint })
+    ? useMediaQuery({ maxWidth: mobileBreakpoint }, undefined, handleIsMobile)
     : isMobileNative;
+
+  const isMobileOrMobileWeb = isMobile || (isWeb && isMobile);
+
+  const [isOpen, setisOpen] = useState(isMobileOrMobileWeb ? false : true);
+
+  const [rightSheet, setRightSheet] = useState(false);
 
   return (
     <Drawer
-      open={isWeb ? true : isOpen}
-      type={isWeb ? "permanent" : "modal"}
+      open={isOpen}
+      type={!isWeb || isMobile ? "modal" : "permanent"}
       onClose={() => setisOpen(false)}
       drawerContent={
         <View>
@@ -37,7 +49,12 @@ export default function Home() {
       }
       style={styles.pageContainer}
       drawerStyle={styles.drawer}
-      appbar={<Appbar toggleRightSheet={setRightSheet} />}
+      appbar={
+        <Appbar
+          toggleRightSheet={setRightSheet}
+          toggleDrawer={() => setisOpen(!isOpen)}
+        />
+      }
     >
       <View style={styles.body}>
         <ScrollView>

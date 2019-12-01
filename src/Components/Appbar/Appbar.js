@@ -1,36 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { StyleSheet } from "react-native";
-import { Appbar, Button, Icon, BodyText } from "material-bread";
+import { StyleSheet, View } from "react-native";
+import { Appbar, Button, Icon, Ripple } from "material-bread";
 import ProfileButton from "./ProfileButton";
 import Search from "../Search";
 import NotificationBadge from "./NotificationBadge";
 
 import { withRouter } from "react-router";
-import { useMediaQuery } from "react-responsive";
-import {
-  mobileBreakpoint,
-  isMobileNative,
-  LaptopOrDesktop,
-  NotMobile
-} from "../../Styles/responsive";
-import { isWeb } from "../../Styles/device";
 
-function Header({ history, toggleRightSheet }) {
-  const isMobile = isWeb
-    ? useMediaQuery({ maxWidth: mobileBreakpoint })
-    : isMobileNative;
+import { LaptopOrDesktop, NotMobile } from "../../Styles/responsive";
 
+function Header({ history, toggleRightSheet, toggleDrawer }) {
   return (
     <Appbar
-      title={
-        <BodyText
-          text={isMobile ? "DEV.M" : "Dev.to.Material"}
-          color={"#0d0863"}
-        />
+      navigation={
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <Ripple onPress={toggleDrawer}>
+            <Icon name="menu" size={24} />
+          </Ripple>
+          <Button
+            text={"DEV.TO.MATERIAL"}
+            onPress={() => history.push("/")}
+            color="#0d0961"
+            type="flat"
+            style={{
+              marginLeft: 16
+            }}
+          />
+        </View>
       }
-      onTitle={() => history.push("/")}
+      onNavigation={toggleDrawer}
       color={"white"}
       elevation={0}
       style={[{ boxShadow: "none" }, styles.appbar]}
@@ -58,7 +58,8 @@ function Header({ history, toggleRightSheet }) {
 
 Header.propTypes = {
   history: PropTypes.object,
-  toggleRightSheet: PropTypes.func
+  toggleRightSheet: PropTypes.func,
+  toggleDrawer: PropTypes.func
 };
 
 const styles = StyleSheet.create({
