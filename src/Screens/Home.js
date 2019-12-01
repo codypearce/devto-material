@@ -14,7 +14,6 @@ import PostList from "../Components/PostList/PostList";
 import ThirdColumn from "../Components/ThirdColumn/ThirdColumn";
 
 import {
-  TabletOrMobile,
   Mobile,
   isMobileNative,
   mobileBreakpoint,
@@ -103,9 +102,9 @@ function Home({ location }) {
           </View>
         </ScrollView>
         <RightSheet visible={!!rightSheet} toggle={setRightSheet} />
-        <TabletOrMobile>
+        <Mobile>
           <Fab containerStyle={[styles.fab]} />
-        </TabletOrMobile>
+        </Mobile>
       </View>
     </Drawer>
   );
@@ -142,8 +141,8 @@ const styles = StyleSheet.create({
   },
   fab: {
     position: isWeb ? "fixed" : "absolute",
-    right: 24,
-    bottom: isIphoneX() ? 80 + getBottomSpace() : 24
+    right: 20,
+    bottom: isIphoneX() ? 80 + getBottomSpace() : 20
   }
 });
 

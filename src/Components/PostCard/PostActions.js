@@ -5,9 +5,17 @@ import { StyleSheet } from "react-native";
 import { Badge, Icon, ToggleButton } from "material-bread";
 import Box from "../Box";
 
-export default function PostActions({ reactions, comments }) {
+export default function PostActions({ reactions, comments, isMobile }) {
   return (
-    <Box type={"row"} alignItems={"center"}>
+    <Box
+      type={"row"}
+      justifyContent={isMobile ? "space-between" : "center"}
+      alignItems={"center"}
+      style={{
+        width: isMobile ? "100%" : "auto",
+        marginTop: isMobile ? 12 : 0
+      }}
+    >
       <Badge
         size={16}
         content={reactions}
@@ -74,5 +82,6 @@ const styles = StyleSheet.create({
 
 PostActions.propTypes = {
   reactions: PropTypes.number,
-  comments: PropTypes.number
+  comments: PropTypes.number,
+  isMobile: PropTypes.bool
 };

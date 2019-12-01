@@ -25,7 +25,7 @@ export default function RightSheet({ visible, toggle }) {
       visible={!!visible}
       onBackdropPress={() => toggle(false)}
       onSwipeRight={() => toggle(false)}
-      style={{ flex: 1 }}
+      style={{ flex: 1, width: 300 }}
     >
       <View style={{ flex: 1 }}>
         <ScrollView

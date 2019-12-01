@@ -10,7 +10,8 @@ export default function Box({
   marginTop,
   marginBottom,
   padding,
-  flexWrap
+  flexWrap,
+  style
 }) {
   return (
     <View
@@ -23,7 +24,8 @@ export default function Box({
           marginBottom: marginBottom,
           padding,
           flexWrap
-        }
+        },
+        style
       ]}
     >
       {children}
@@ -39,5 +41,6 @@ Box.propTypes = {
   marginTop: PropTypes.number,
   marginBottom: PropTypes.number,
   padding: PropTypes.number,
-  flexWrap: PropTypes.string
+  flexWrap: PropTypes.string,
+  style: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
 };

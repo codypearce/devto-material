@@ -6,6 +6,7 @@ import { screenWidth } from "./dimensions";
 const desktopBreakpoint = 1223;
 const tabletBreakpoint = 1023;
 const mobileBreakpoint = 767;
+const mobileSmallBreakpoint = 350;
 
 // Native Resposive
 const isDesktopNative = screenWidth > desktopBreakpoint;
@@ -17,6 +18,7 @@ const isTabletNative =
 const isTabletOrMobileNative = screenWidth < tabletBreakpoint;
 const isMobileNative = screenWidth < mobileBreakpoint;
 const isNotMobleNative = screenWidth > mobileBreakpoint;
+const isMobileSmallNative = screenWidth < mobileSmallBreakpoint;
 
 // Cross-Platform Responsive Components
 const Desktop = ({ children }) => {
@@ -72,11 +74,18 @@ const NotMobile = ({ children }) => {
     : isNotMobleNative;
   return isMobile ? children : null;
 };
+const MobileSmall = ({ children }) => {
+  const isMobile = isWeb
+    ? useMediaQuery({ maxWidth: mobileSmallBreakpoint })
+    : isMobileSmallNative;
+  return isMobile ? children : null;
+};
 
 export {
   mobileBreakpoint,
   tabletBreakpoint,
   desktopBreakpoint,
+  mobileSmallBreakpoint,
   isDesktopNative,
   isLaptopOrDesktopNative,
   isLaptopNative,
@@ -84,11 +93,13 @@ export {
   isTabletOrMobileNative,
   isMobileNative,
   isNotMobleNative,
+  isMobileSmallNative,
   Desktop,
   LaptopOrDesktop,
   Laptop,
   Tablet,
   TabletOrMobile,
   Mobile,
-  NotMobile
+  NotMobile,
+  MobileSmall
 };
