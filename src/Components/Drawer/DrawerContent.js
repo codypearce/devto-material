@@ -48,7 +48,9 @@ export default function DrawerContent() {
     "linux"
   ];
   return (
-    <ScrollView style={{ padding: isMobile ? 16 : 34 }}>
+    <ScrollView
+      style={{ padding: isMobile ? 16 : 34, height: "100%", flex: 1 }}
+    >
       <DrawerNavigation />
       <TagSection tags={mytags} title="My tags" />
       <TagSection tags={othertags} title="Other Popular tags" />
