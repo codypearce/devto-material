@@ -11,6 +11,7 @@ export default function PostActions({ reactions, comments }) {
       <Badge
         size={16}
         content={reactions}
+        visible={reactions > 0}
         maxValue={999}
         right={-10}
         top={-4}
@@ -27,6 +28,7 @@ export default function PostActions({ reactions, comments }) {
       <Badge
         size={16}
         content={comments}
+        visible={comments > 0}
         maxValue={999}
         right={-10}
         top={-4}
