@@ -1,15 +1,29 @@
 import React, { useState } from "react";
-import { View, Text, Platform, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { Drawer, Fab } from "material-bread";
-import Appbar from "../Components/Appbar";
+import Appbar from "../Components/Appbar/Appbar";
+import RightSheet from "../Components/RightSheet";
+import Search from "../Components/Search";
+
+import {
+  TabletOrMobile,
+  Mobile,
+  isMobileNative,
+  mobileBreakpoint
+} from "../Styles/responsive";
 import { trueHundredHeight, screenHeight } from "../Styles/dimensions";
-import theme from "../Styles/theme";
-import { TabletOrMobile } from "../Styles/responsive";
+import { isWeb } from "../Styles/device";
+import { useMediaQuery } from "react-responsive";
+
 import { getBottomSpace } from "react-native-iphone-x-helper";
+import theme from "../Styles/theme";
 
 export default function Home() {
   const [isOpen, setisOpen] = useState(true);
-  const isWeb = Platform.OS == "web";
+  const [rightSheet, setRightSheet] = useState(false);
+  const isMobile = isWeb
+    ? useMediaQuery({ maxWidth: mobileBreakpoint })
+    : isMobileNative;
 
   return (
     <Drawer
@@ -23,12 +37,16 @@ export default function Home() {
       }
       style={styles.pageContainer}
       drawerStyle={styles.drawer}
-      appbar={<Appbar />}
+      appbar={<Appbar toggleRightSheet={setRightSheet} />}
     >
       <View style={styles.body}>
         <ScrollView>
-          <View style={{ flexDirection: "row", padding: 34 }}></View>
+          <Mobile>
+            <Search />
+          </Mobile>
+          <View style={[{ padding: isMobile ? 8 : 34 }, styles.content]}></View>
         </ScrollView>
+        <RightSheet visible={!!rightSheet} toggle={setRightSheet} />
         <TabletOrMobile>
           <Fab containerStyle={styles.fab} />
         </TabletOrMobile>
@@ -54,6 +72,9 @@ const styles = StyleSheet.create({
     backgroundColor: theme.bodyBackground,
 
     minHeight: screenHeight - appbarHeight
+  },
+  content: {
+    flexDirection: "row"
   },
   fab: {
     flexDirection: "row",
