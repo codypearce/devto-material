@@ -25,7 +25,7 @@ function PostCard({ post, index, history }) {
       onHoverOut={() => setbackgroundColor("#fff")}
     >
       <TouchableWithoutFeedback
-        onPress={() => history.push(`/article/${post.id}`)}
+        onPress={() => history.push(`/post/${post.id}`)}
       >
         <View
           key={post.id}

@@ -12,7 +12,7 @@ function Routes() {
       <View style={{ backgroundColor: "#f2f6ff", minHeight: "100%" }}>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/Post/:id" component={Post} />
+          <Route exact path="/post/:id" component={Post} />
         </Switch>
       </View>
     </Router>

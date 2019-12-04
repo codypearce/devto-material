@@ -4,11 +4,16 @@ const APP_DIR = path.resolve(__dirname, "./index.js");
 
 module.exports = {
   entry: APP_DIR,
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "index_bundle.js",
+    publicPath: "/"
+  },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules\/(?!(material-bread|react-native-vector-icons)\/).*/,
+        exclude: /node_modules\/(?!(material-bread|react-native-vector-icons||react-native-render-html)\/).*/,
         use: {
           loader: "babel-loader",
           options: {
