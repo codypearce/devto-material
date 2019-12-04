@@ -17,7 +17,7 @@ import {
   LaptopOrDesktop
 } from "../Styles/responsive";
 import { trueHundredHeight, screenHeight } from "../Styles/dimensions";
-import { isWeb } from "../Styles/device";
+import { isWeb, isAndroid } from "../Styles/device";
 import { useMediaQuery } from "react-responsive";
 
 import { getBottomSpace, isIphoneX } from "react-native-iphone-x-helper";
@@ -53,7 +53,7 @@ export default function Layout({ children }) {
       }
     >
       <View style={styles.body}>
-        <ScrollView>
+        <ScrollView contentContainerStyle={styles.scrollView}>
           <Mobile>
             <Search />
           </Mobile>
@@ -78,6 +78,10 @@ Layout.propTypes = {
 };
 
 const appbarHeight = 56;
+let fabPositionBottom = isIphoneX() ? 40 + getBottomSpace() : 20;
+if (isAndroid) {
+  fabPositionBottom = 40;
+}
 
 const styles = StyleSheet.create({
   pageContainer: {
@@ -89,7 +93,7 @@ const styles = StyleSheet.create({
     borderRightWidth: 0,
     minHeight: screenHeight - appbarHeight,
     height: "100%",
-    paddingBottom: isIphoneX() ? 80 + getBottomSpace() : 34
+    paddingBottom: isIphoneX() || isAndroid ? 80 + getBottomSpace() : 34
   },
   body: {
     width: "100%",
@@ -97,7 +101,7 @@ const styles = StyleSheet.create({
 
     minHeight: screenHeight - appbarHeight,
     position: "relative",
-    paddingBottom: 140,
+    marginBottom: 100,
     maxWidth: 1440
   },
   content: {
@@ -106,6 +110,9 @@ const styles = StyleSheet.create({
   fab: {
     position: isWeb ? "fixed" : "absolute",
     right: 20,
-    bottom: isIphoneX() ? 80 + getBottomSpace() : 20
+    bottom: fabPositionBottom
+  },
+  scrollView: {
+    paddingBottom: 100
   }
 });
