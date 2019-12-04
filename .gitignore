@@ -44,3 +44,4 @@ buck-out/
 ios/build/
 ios/build/*
 docker
+web/dist
