@@ -39,6 +39,7 @@ function PostFilterList({ isLoading, location }) {
       justifyContent={isMobile ? "center" : "space-between"}
       flexWrap={"wrap"}
       padding={24}
+      style={{ backgroundColor: "white" }}
     >
       <PostFilter title="Feed" active={active == "Feed"} />
       <PostFilter

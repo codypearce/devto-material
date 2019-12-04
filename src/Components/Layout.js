@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
 
     minHeight: screenHeight - appbarHeight,
     position: "relative",
-    paddingBottom: 100,
+    paddingBottom: 140,
     maxWidth: 1440
   },
   content: {
