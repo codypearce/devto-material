@@ -10,11 +10,12 @@
 
 ## Intro
 
-Dev.to.Material is a simple Material Dev.to client built with React Native that runs on the Web, Android, iOS, and Electron (Windows, Linux, and MacOS). It was built for exprimental and demoing purposes for sharing 100% code between the above platforms. 
+Dev.to.Material is a simple Material [Dev.to](https://dev.to/) client built with React Native that runs on the Web, Android, iOS, and Electron (Windows, Linux, and MacOS). This was built as an experiment in sharing 100% code between the above platforms. 
 
-### What's implemented?
+### Features
 
-Unfortunately, most Dev.to API functionality is either in a closed Alpha or has not been documented yet. Therefore, this client only supports:
+Unfortunately, most [Dev.to API](https://docs.dev.to/api/) functionality is either in a closed Alpha or has not been documented yet. Currently implemented:
+
 - Fetching Articles
 - Searching Articles by Tags
 - Clicking on Tags to filter Articles
@@ -24,13 +25,13 @@ Unfortunately, most Dev.to API functionality is either in a closed Alpha or has 
 The rest of the client is static data.
 
 ###  Tech
-The app is built using React Native `59.0` to render to each platform. React Native Web allows rendering React Native on the Web. The electron apps is rendered with React Native Web and Electron `4.0`. The following packages were also used:
+The app is built using React Native `59.0` to render to each platform. [React Native Web](https://github.com/necolas/react-native-web) allows rendering React Native on the Web. The electron apps is rendered with React Native Web and [Electron](https://github.com/electron/electron) `4.0`. The following packages were also used:
 
-- React Router, Reacout Router Native, and React Router Dom (Router)
-- Material Bread (UI Kit)
-- React Native Infinity (Project Setup)
-- `react-responsive` (Media Queries and Responsive)
-- `react-native-render-html` (Rendering Article HTML)
+- [Reac Routert](https://github.com/ReactTraining/react-router) , [React Router Native](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-native), and [React Router Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom) (Router)
+- [Material Bread](https://github.com/codypearce/material-bread) (UI Kit)
+- [React Native Infinity](https://github.com/codypearce/react-native-infinity) (Project Setup)
+- [react-responsive](https://www.npmjs.com/package/react-responsive) (Media Queries and Responsive)
+- [react-native-render-html](https://github.com/archriss/react-native-render-html) (Rendering Article HTML)
 
 
 ## Quick Start
