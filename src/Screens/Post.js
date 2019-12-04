@@ -84,7 +84,8 @@ const styles = StyleSheet.create({
   postCard: {
     padding: 40,
     flex: 1,
-    maxWidth: 825
+    maxWidth: 825,
+    alignSelf: "flex-start"
   },
   postImage: {
     width: "100%",
