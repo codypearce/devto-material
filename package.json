@@ -7,7 +7,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "ios": "react-native run-ios",
     "android": "react-native run-android",
-    "build-web": "webpack --config ./web/webpack.config.js --mode production",
+    "build-web": "webpack --config ./web/webpack.config.js --mode production && npm run copy-static",
+    "copy-static": "cp -r ./web/static/ ./web/dist",
     "web": "webpack-dev-server --config ./web/webpack.config.js --mode development",
     "server": "webpack-dev-server --config ./electron/webpack.config.js",
     "electron": "electron ./electron/main.js"

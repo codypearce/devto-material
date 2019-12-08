@@ -59,7 +59,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: "./",
+    contentBase: "./web/static",
     hot: true
   }
 };
