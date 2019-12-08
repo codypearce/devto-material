@@ -8,6 +8,7 @@ import FloatingCard from "../FloatingCard";
 import NewListingItem from "./NewListingsItem";
 import Box from "../Box";
 import PrimaryChip from "../PrimaryChip";
+import theme from "../../Styles/theme";
 
 export default function NewListings({ maxWidth }) {
   const totalListing = 88;
@@ -40,7 +41,7 @@ export default function NewListings({ maxWidth }) {
         radius={20}
         type={"flat"}
         text={"Create a Listing"}
-        textStyles={{ lineHeight: 24 }}
+        textStyles={{ lineHeight: 24, fontFamily: theme.fontFamily }}
         style={{ marginTop: 12 }}
       />
     </FloatingCard>

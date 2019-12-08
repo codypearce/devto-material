@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { View, Image, Text, StyleSheet, Linking } from "react-native";
 import { Avatar, Anchor } from "material-bread";
 import Box from "../Box";
+import theme from "../../Styles/theme";
 
 export default function PostUser({
   userImage,
@@ -34,11 +35,13 @@ export default function PostUser({
 const styles = StyleSheet.create({
   userName: {
     marginLeft: 12,
-    fontWeight: "600"
+    fontWeight: "600",
+    fontFamily: theme.fontFamily
   },
   publishDate: {
     marginLeft: 12,
-    color: "#777"
+    color: "#777",
+    fontFamily: theme.fontFamily
   }
 });
 

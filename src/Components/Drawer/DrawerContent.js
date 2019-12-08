@@ -10,6 +10,7 @@ import { isMobileNative, mobileBreakpoint } from "../../Styles/responsive";
 
 import { isWeb } from "../../Styles/device";
 import { useMediaQuery } from "react-responsive";
+import theme from "../../Styles/theme";
 
 export default function DrawerContent() {
   const isMobile = isWeb
@@ -62,6 +63,7 @@ export default function DrawerContent() {
         radius={20}
         borderSize={2}
         style={{ marginBottom: 40 }}
+        textStyle={{ fontFamily: theme.fontFamily }}
       />
       <KeyLinks />
     </ScrollView>

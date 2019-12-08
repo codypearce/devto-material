@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Chip } from "material-bread";
+import theme from "../Styles/theme";
 
 export default function PrimaryChip({ title }) {
   return (
@@ -20,7 +21,8 @@ export default function PrimaryChip({ title }) {
         marginLeft: 6,
         marginRight: 6,
         color: "white",
-        fontWeight: "600"
+        fontWeight: "600",
+        fontFamily: theme.fontFamily
       }}
     />
   );

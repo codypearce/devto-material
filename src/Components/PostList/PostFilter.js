@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import { Button } from "material-bread";
 import { withRouter } from "react-router";
+import theme from "../../Styles/theme";
 
 function PostFilter({ title, filter, type, history, active }) {
   function HandleNavigate() {
@@ -19,6 +20,7 @@ function PostFilter({ title, filter, type, history, active }) {
       textColor={active ? "#fff" : "#91959c"}
       onPressIn={() => HandleNavigate()}
       style={{ marginBottom: 4 }}
+      textStyle={{ fontFamily: theme.fontFamily }}
     />
   );
 }

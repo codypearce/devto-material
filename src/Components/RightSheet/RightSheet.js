@@ -16,6 +16,8 @@ import {
 import { isWeb } from "../../Styles/device";
 import { useMediaQuery } from "react-responsive";
 
+import theme from "../../Styles/theme";
+
 export default function RightSheet({ visible, toggle }) {
   const isMobile = isWeb
     ? useMediaQuery({ maxWidth: mobileBreakpoint })
@@ -52,37 +54,37 @@ export default function RightSheet({ visible, toggle }) {
               <ListItem
                 text={"Profile"}
                 icon={<Icon name={"person"} size={24} />}
-                textStyle={{ lineHeight: 24 }}
+                textStyle={{ lineHeight: 24, fontFamily: theme.fontFamily }}
               />
               <ListItem
                 text={"Dashboard"}
                 icon={<Icon name={"dashboard"} size={24} />}
-                textStyle={{ lineHeight: 24 }}
+                textStyle={{ lineHeight: 24, fontFamily: theme.fontFamily }}
               />
               <ListItem
                 text={"Write a post"}
                 icon={<Icon name={"create"} size={24} />}
-                textStyle={{ lineHeight: 24 }}
+                textStyle={{ lineHeight: 24, fontFamily: theme.fontFamily }}
               />
               <ListItem
                 text={"Reading List"}
                 icon={<Icon name={"local-library"} size={24} />}
-                textStyle={{ lineHeight: 24 }}
+                textStyle={{ lineHeight: 24, fontFamily: theme.fontFamily }}
               />
               <ListItem
                 text={"Settings"}
                 icon={<Icon name={"settings"} size={24} />}
-                textStyle={{ lineHeight: 24 }}
+                textStyle={{ lineHeight: 24, fontFamily: theme.fontFamily }}
               />
               <ListItem
                 text={"Key Links"}
                 icon={<Icon name={"link"} size={24} />}
-                textStyle={{ lineHeight: 24 }}
+                textStyle={{ lineHeight: 24, fontFamily: theme.fontFamily }}
               />
               <ListItem
                 text={"Signout"}
                 icon={<Icon name={"exit-to-app"} size={24} />}
-                textStyle={{ lineHeight: 24 }}
+                textStyle={{ lineHeight: 24, fontFamily: theme.fontFamily }}
               />
             </List>
             <Divider />

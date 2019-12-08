@@ -94,7 +94,8 @@ const styles = StyleSheet.create({
   },
   title: {
     marginTop: 16,
-    marginBottom: 8
+    marginBottom: 8,
+    fontFamily: "Roboto"
   }
 });
 

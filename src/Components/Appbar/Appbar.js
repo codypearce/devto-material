@@ -10,6 +10,7 @@ import NotificationBadge from "./NotificationBadge";
 import { withRouter } from "react-router";
 
 import { LaptopOrDesktop, NotMobile } from "../../Styles/responsive";
+import theme from "../../Styles/theme";
 
 function Header({ history, toggleRightSheet, toggleDrawer }) {
   return (
@@ -27,6 +28,7 @@ function Header({ history, toggleRightSheet, toggleDrawer }) {
             style={{
               marginLeft: 16
             }}
+            textStyle={{ fontFamily: theme.fontFamily }}
           />
         </View>
       }
@@ -47,6 +49,7 @@ function Header({ history, toggleRightSheet, toggleDrawer }) {
             radius={20}
             borderSize={2}
             style={{ marginRight: 8 }}
+            textStyle={{ fontFamily: theme.fontFamily }}
           />
         </LaptopOrDesktop>,
         <NotificationBadge hasNotifications={true} key={2} />,

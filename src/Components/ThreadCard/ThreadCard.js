@@ -7,6 +7,7 @@ import SectionHeader from "../SectionHeader";
 import FloatingCard from "../FloatingCard";
 import Box from "../Box";
 import ThreadListItem from "./ThreadListItem";
+import theme from "../../Styles/theme";
 
 export default function ThreadCard({
   list,
@@ -34,7 +35,7 @@ export default function ThreadCard({
         radius={20}
         type={"flat"}
         text={buttonText}
-        textStyles={{ lineHeight: 24 }}
+        textStyles={{ lineHeight: 24, fontFamily: theme.fontFamily }}
         style={{ marginTop: 12 }}
       />
       <BodyText

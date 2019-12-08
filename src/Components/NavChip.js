@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Chip, Hoverable } from "material-bread";
 import { withRouter } from "react-router";
+import theme from "../Styles/theme";
 
 function NavChip({ title, style, history }) {
   const initialState = {
@@ -47,7 +48,8 @@ function NavChip({ title, style, history }) {
           marginLeft: 6,
           marginRight: 6,
           color: "#9fa1a9",
-          fontWeight: "600"
+          fontWeight: "600",
+          fontFamily: theme.fontFamily
         }}
       />
     </Hoverable>
