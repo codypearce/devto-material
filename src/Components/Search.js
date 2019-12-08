@@ -37,9 +37,14 @@ function Search({ history }) {
   return (
     <Searchfield
       color={isMobile ? "white" : "#f2f6ff"}
-      placeholderTextColor={"#75787e"}
       key={0}
-      iconProps={{
+      closeIconProps={{
+        color: "#75787e",
+        style: {
+          margin: 10
+        }
+      }}
+      searchIconProps={{
         color: "#75787e",
         style: {
           margin: 10
@@ -59,13 +64,16 @@ function Search({ history }) {
           color: "#75787e"
         }
       ]}
-      value={search}
-      onChangeText={search => setSearch(search)}
-      onCloseIcon={() => setSearch("")}
-      onSubmitEditing={() => HandleNavigate(search)}
-      onKeyPress={event => {
-        if (event.nativeEvent.key == "Enter") {
-          HandleNavigate(search);
+      inputProps={{
+        value: search,
+        placeholderTextColor: "#75787e",
+        onChangeText: search => setSearch(search),
+        onCloseIcon: () => setSearch(""),
+        onSubmitEditing: () => HandleNavigate(search),
+        onKeyPress: event => {
+          if (event.nativeEvent.key == "Enter") {
+            HandleNavigate(search);
+          }
         }
       }}
     />
