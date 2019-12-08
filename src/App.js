@@ -2,10 +2,11 @@ import React from "react";
 import { View, SafeAreaView } from "react-native";
 import Routes from "./Routes";
 import { BreadProvider } from "material-bread";
+import { isWeb } from "./Styles/device";
 
 const theme = {
   text: {
-    fontFamily: "Roboto"
+    fontFamily: isWeb ? "Roboto, sans-serif" : "Roboto"
   }
 };
 
