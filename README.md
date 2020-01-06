@@ -13,7 +13,7 @@
 
 Dev.to.Material is a simple Material [Dev.to](https://dev.to/) client built with React Native that runs on the Web, Android, iOS, and Electron (Windows, Linux, and MacOS). This was built as an experiment in sharing 100% code between the above platforms. 
 
-Check out [this article](https://www.consolelogs.dev/creating-material-devto-client-on-six-platforms/) to learn more]
+Check out [this article](https://codinhood.com/creating-material-devto-client-on-six-platforms/) to learn more]
 
 ### Features
 
