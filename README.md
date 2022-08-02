@@ -7,7 +7,6 @@
 
 <p align="center" >Material Dev.to client for 6 platforms with 100% code sharing</p>
 
-# [Demo Site](https://cranky-kare-193fbd.netlify.com/)
 
 ## Intro
 
